@@ -15,14 +15,14 @@ FROM git-base AS bff
 
 WORKDIR /downloads
 
-RUN git clone --depth=1 https://github.com/bearddaniel80-netizen/web-compliance.git
+RUN git clone --depth=1 https://github.com/bearddaniel80-netizen/web-react-compliance.git
 
 # ---------- runtime ----------
 FROM deps AS runtime
 
 WORKDIR /app
 
-COPY --from=bff /downloads/web-compliance/node .
+COPY --from=bff /downloads/web-react-compliance/node .
 
 RUN --mount=type=cache,target=/root/.npm \
     npm install
